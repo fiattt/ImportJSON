@@ -116,7 +116,7 @@ function ImportJSONViaPost(url, payload, fetchOptions, query, parseOptions) {
   }
 
   if (postOptions["payload"] == null) {
-    postOptions["payload"] = payload;
+    postOptions["payload"] = URLDncode(payload);
   }
 
   if (postOptions["contentType"] == null) {
@@ -256,6 +256,10 @@ function ImportJSONBasicAuth(url, username, password, query, parseOptions) {
  */
 function URLEncode(value) {
   return encodeURIComponent(value.toString());  
+}
+
+function URLDncode(value) {
+  return decodeURIComponent(value.toString());  
 }
 
 /**
